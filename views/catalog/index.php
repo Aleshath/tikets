@@ -31,7 +31,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); 
     ?>
     <?  
-    // получение данных для отображения карточек одежды
+    // получение данных для отображения карточек концертов
     $dataProviderConcert = new \yii\data\ActiveDataProvider([
         'query' => Event::find()->where(['category_id' => 1, 'status_id' => 2]),
         'pagination' => false, // Отключаем пагинацию, чтобы отобразить все карточки
@@ -42,10 +42,10 @@ $this->params['breadcrumbs'][] = $this->title;
         'dataProvider' => $dataProviderConcert,
         'itemOptions' => ['class' => 'item'],
         'layout' => "<h2 style='margin-left:2.25rem; ' id='Concert'>Концерты</h2><div class='d-flex'>{items}</div>",
-        'itemView' => 'item', // Представление для каждой карточки одежды
+        'itemView' => 'item', // Представление для каждой карточки концерты
     ]) ?>
     <?  
-    // получение данных для отображения карточек одежды
+    // получение данных для отображения карточек концертов
     $dataProviderExhibition = new \yii\data\ActiveDataProvider([
         'query' => Event::find()->where(['category_id' => 2, 'status_id' => 2]),
         'pagination' => false, // Отключаем пагинацию, чтобы отобразить все карточки
@@ -56,10 +56,10 @@ $this->params['breadcrumbs'][] = $this->title;
         'dataProvider' => $dataProviderExhibition,
         'itemOptions' => ['class' => 'item'],
         'layout' => "<h2 style='margin-left:2.25rem;' id='Exhibition'>Выставки</h2><div class='d-flex'>{items}</div>",
-        'itemView' => 'item', // Представление для каждой карточки одежды
+        'itemView' => 'item', // Представление для каждой карточки концерты
     ]) ?>
     <?  
-    // получение данных для отображения карточек одежды
+    // получение данных для отображения карточек концертов
     $dataProviderTheaters = new \yii\data\ActiveDataProvider([
         'query' => Event::find()->where(['category_id' => 3, 'status_id' => 2]),
         'pagination' => false, // Отключаем пагинацию, чтобы отобразить все карточки
@@ -70,10 +70,10 @@ $this->params['breadcrumbs'][] = $this->title;
         'dataProvider' => $dataProviderTheaters,
         'itemOptions' => ['class' => 'item'],
         'layout' => "<h2 style='margin-left:2.25rem;' id='Theaters'>Театры</h2><div class='d-flex'>{items}</div>",
-        'itemView' => 'item', // Представление для каждой карточки одежды
+        'itemView' => 'item', // Представление для каждой карточки концерты
     ]) ?>
     <?  
-    // получение данных для отображения карточек одежды
+    // получение данных для отображения карточек концертов
     $dataProviderPerformances = new \yii\data\ActiveDataProvider([
         'query' => Event::find()->where(['category_id' => 4, 'status_id' => 2]),
         'pagination' => false, // Отключаем пагинацию, чтобы отобразить все карточки
@@ -84,10 +84,10 @@ $this->params['breadcrumbs'][] = $this->title;
         'dataProvider' => $dataProviderPerformances,
         'itemOptions' => ['class' => 'item'],
         'layout' => "<h2 style='margin-left:2.25rem;' id='Performances'>Спектакли</h2><div class='d-flex'>{items}</div>",
-        'itemView' => 'item', // Представление для каждой карточки одежды
+        'itemView' => 'item', // Представление для каждой карточки концерты
     ]) ?>
     <?  
-    // получение данных для отображения карточек одежды
+    // получение данных для отображения карточек концертов
     $dataProviderFestivals = new \yii\data\ActiveDataProvider([
         'query' => Event::find()->where(['category_id' => 5, 'status_id' => 2]),
         'pagination' => false, // Отключаем пагинацию, чтобы отобразить все карточки
@@ -98,7 +98,7 @@ $this->params['breadcrumbs'][] = $this->title;
         'dataProvider' => $dataProviderFestivals,
         'itemOptions' => ['class' => 'item'],
         'layout' => "<h2 style='margin-left:2.25rem;' id='Festivals'>Фестивали</h2><div class='d-flex'>{items}</div>",
-        'itemView' => 'item', // Представление для каждой карточки одежды
+        'itemView' => 'item', // Представление для каждой карточки концерты
     ]) ?>
     </div>
     <div class="d-flex item-align-center justify-content-center align-items-center" style="background-color: #f2f2f2; height:25rem; border-radius: 5rem; flex-direction:column; width: 1600px; margin-left:25px">

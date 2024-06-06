@@ -43,7 +43,54 @@ $this->params['breadcrumbs'][] = $this->title;
         <div style="position: absolute; flex-direction:end; flex-direction:column; margin-top:500px; margin-left: 1rem;" class="d-flex">
             <p class="mb-0" style="color: white;"><?= $buffer[0] ?></p>
             <h1 class="mt-0" style="color: white;"><?= Html::encode($this->title) ?></h1>
-            <a href="#" class="btn btn-light" style="border-radius: 1rem; background-color:white; width:15rem">Расписание и билеты</a>
+            <button href="#" class="btn btn-light" style="border-radius: 1rem; background-color:white; width:15rem" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">Купить билет</button>
+           
+            <!-- First Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog custom-modal">
+            <div class="modal-content" style="border-radius: 2rem;">
+                <div class="modal-header d-flex justify-content-center">
+                    <h5 class="modal-title" id="exampleModalLabel">Покупка билета</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body d-flex justify-content-center" style="flex-direction: column;">
+                    <p style="display: flex; align-items: center; justify-content: center;">Стоимость билета: <?= $model->price_ticket?> ₽</p>
+                    <div class="d-flex" style="flex-direction: column; align-items: center;">
+                        <input placeholder="Укажите email" type="text" class="form-control mb-3" id="email" style="height: 50px; border-radius: 1rem; width: 350px;" required>
+                        <input placeholder="Введите номер карты" type="text" class="form-control mb-3" id="cardNumber" style="height: 50px; border-radius: 1rem; width: 350px;" required>
+                        <input placeholder="Срок действия" type="text" class="form-control mb-3" id="expiryDate" style="height: 50px; border-radius: 1rem; width: 350px;" required>
+                        <input placeholder="Владелец карты" type="text" class="form-control mb-3" id="cardHolder" style="height: 50px; border-radius: 1rem; width: 350px;" required>
+                        <input placeholder="CVV" type="text" class="form-control mb-3" id="cvv" style="height: 50px; border-radius: 1rem; width: 350px;" required>
+                        <div class="form-check mb-3">
+                            <input type="checkbox" class="form-check-input" id="subscribe">
+                            <label class="form-check-label" for="subscribe">Получать рассылку со скидками и акциями</label>
+                        </div>
+                        <button type="button" class="btn btn-outline-success" style="width: 350px; border-radius: 1rem;" id="purchaseButton">Купить</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Second Modal -->
+    <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
+        <div class="modal-dialog custom-modal">
+            <div class="modal-content" style="border-radius: 2rem;">
+                <div class="modal-header d-flex justify-content-center">
+                    <h5 class="modal-title" id="successModalLabel">Успешная покупка</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body d-flex justify-content-center" style="flex-direction: column;">
+                    <p style="display: flex; align-items: center; justify-content: center;">Ваша покупка была успешно завершена!</p>
+                    <div class="d-flex justify-content-center">
+                        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal" style="width: 150px; border-radius: 1rem;">Закрыть</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
         </div>
         <?= Html::img('@web/img/hor/' . $value->photo, ['class' => 'd-block', 'style' => 'width:70rem; border-radius:2rem;']) ?>
     </div>
@@ -164,4 +211,23 @@ $this->params['breadcrumbs'][] = $this->title;
         color: #757575;
     }   
 </style>
+<script>
+        document.getElementById('purchaseButton').addEventListener('click', function() {
+            var exampleModalEl = document.getElementById('exampleModal');
+            var successModalEl = document.getElementById('successModal');
+            
+            // Create instances of modals
+            var exampleModal = bootstrap.Modal.getInstance(exampleModalEl);
+            var successModal = new bootstrap.Modal(successModalEl);
+
+            // Close the first modal
+            exampleModal.hide();
+
+            // Show the second modal
+            successModal.show();
+        });
+    </script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <?php endforeach; ?>
